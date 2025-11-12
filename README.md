@@ -3,6 +3,8 @@
 This is a simple CHIP-8 emulator written from scratch in Java. It was built as a learning project to understand the core concepts of CPU emulation, memory, I/O, and hardware simulation.
 
 The emulator is capable of loading and running most original CHIP-8 ROMs, such as Pong, Space Invaders, and various tech demos.
+I do not provided any ROMs so you had to find it yourself sorry 😞
+
 
 ## Emulator Features
 
