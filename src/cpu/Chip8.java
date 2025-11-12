@@ -346,24 +346,28 @@ public class Chip8 {
     }
 
     public void loadROM(String filePath) {
-        try {
-            byte[] fileBytes = Files.readAllBytes(Path.of(filePath));
-            System.out.println("File successfully read into byte array. Size: " + fileBytes.length + " bytes.");
-            for (int i = 0; i < Math.min(10, fileBytes.length); i++) {
-                System.out.print(fileBytes[i] + " ");
-            }
-            System.out.println();
-            for (int i = 0; i < fileBytes.length; i++) {
-                memory[512 + i] = fileBytes[i] & 0xFF;
-            }
-            System.out.println("Loaded " + fileBytes.length + " bytes.");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (filePath.isEmpty()){
+            throw new NullPointerException("file path is empty CHECK MAIN.JAVA AT LINE 35");
         }
+        else {
+            try {
+                byte[] fileBytes = Files.readAllBytes(Path.of(filePath));
+                System.out.println("File successfully read into byte array. Size: " + fileBytes.length + " bytes.");
+                for (int i = 0; i < Math.min(10, fileBytes.length); i++) {
+                    System.out.print(fileBytes[i] + " ");
+                }
+                System.out.println();
+                for (int i = 0; i < fileBytes.length; i++) {
+                    memory[512 + i] = fileBytes[i] & 0xFF;
+                }
+                System.out.println("Loaded " + fileBytes.length + " bytes.");
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
-
+        }
     }
     public void updateTimers() {
         if (delayTimer > 0) {

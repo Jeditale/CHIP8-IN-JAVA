@@ -31,7 +31,9 @@ public class Main implements KeyListener {
     public Main() {
         chip8 = new Chip8();
         chip8.reset();
-        chip8.loadROM("ROMS/Pong (alt).ch8");
+        //ROM PATH HERE EXAMPLE: ROMS/Pong (alt).ch8
+        chip8.loadROM("");
+
 
         panel = new ScreenPanel();
 
